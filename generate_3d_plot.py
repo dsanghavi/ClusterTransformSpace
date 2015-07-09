@@ -18,8 +18,9 @@ colorarr = "cmykrgbp"
 
 #reading no. of clusters from file 
 with open ("number_of_scatter_points.txt") as f:
-    lim=f.readlines()
-limit=int (lim) 
+    lim=f.readline()
+str1=''.join(lim)
+limit=int (str1) 
 for i in range(0,limit):
     with open('Cluster'+str(i)+'.txt') as file:
         array2d = [[float(digit) for digit in line.split()] for line in file]

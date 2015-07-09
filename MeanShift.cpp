@@ -17,6 +17,13 @@ double gaussian_kernel(double distance, double kernel_bandwidth){
     return temp;
 }
 
+double epanechnikov_kernel(double distance, double kernel_bandwidth){
+    double temp = 0.0;
+    if(distance<=1.0&&distance>=0.0)
+	temp = 1.0-(distance*distance/(kernel_bandwidth*kernel_bandwidth));
+    return temp;
+}
+
 void MeanShift::set_kernel( double (*_kernel_func)(double,double) ) {
     if(!_kernel_func){
         kernel_func = gaussian_kernel;
@@ -48,6 +55,8 @@ vector<double> MeanShift::shift_point(const vector<double> &point, const vector<
 }
 
 vector<vector<double> > MeanShift::cluster(vector<vector<double> > points, double kernel_bandwidth){
+    //set_kernel(epanechnikov_kernel);
+    set_kernel(NULL);
     vector<bool> stop_moving;
     stop_moving.reserve(points.size());
     vector<vector<double> > shifted_points = points;
