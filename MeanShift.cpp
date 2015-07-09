@@ -78,5 +78,6 @@ vector<vector<double> > MeanShift::cluster(vector<vector<double> > points, doubl
         }
         printf("max_shift_distance: %f\n", max_shift_distance);
     } while (max_shift_distance > EPSILON);
+    //getchar();
     return shifted_points;
 }
