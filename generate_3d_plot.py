@@ -23,11 +23,13 @@ str1=''.join(lim)
 limit=int (str1) 
 for i in range(0,limit):
     with open('Cluster'+str(i)+'.txt') as file:
-        array2d = [[float(digit) for digit in line.split()] for line in file]
+        array2d = [[float(digit) for digit in line.split(',')] for line in file]
         x = column(array2d,0)
         y = column(array2d,1)
         z = column(array2d,2)
-        ax.scatter(x,y,z,c=randomColor(),marker='+')
+        if(len(x)>50): 
+            ax.scatter(x,y,z,c=randomColor(),marker='+')
+    file.close()
 
 ax.set_xlabel('X')
 ax.set_ylabel('Y')
