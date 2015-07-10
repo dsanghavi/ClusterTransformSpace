@@ -145,6 +145,9 @@ int main(int argc, char **argv)
              max=repeated_points[l][3];
 	     maxindex = l;
          }
+         if(repeated_points[l][3]>100){
+            printf("%d : %f %f %f %f .\n",maxindex,repeated_points[maxindex][0],repeated_points[maxindex][1],repeated_points[maxindex][2],repeated_points[maxindex][3]);
+         }
     }
      
     printf("Max Frequency point at index %d : %f %f %f %f .\n",maxindex,repeated_points[maxindex][0],repeated_points[maxindex][1],repeated_points[maxindex][2],repeated_points[maxindex][3]);
