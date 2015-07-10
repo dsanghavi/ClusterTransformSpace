@@ -36,14 +36,16 @@ int main(){
 	// exit(0);
 	srand(time(NULL));
 	pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>());
-	readfsamp("../ProstheticEye/Scan2.xyz",cloud);
+	//readfsamp("../ProstheticEye/Scan2.xyz",cloud);
+	readfsamp("../ProstheticEye/Full_face.xyz",cloud);
 	auto v = makeVisualizer();
 	addCloud(v,cloud,"cloud");
-	//plane p(0.032072,0.031865,0.129676);
-	plane p(0.031160,-0.006922,-0.032507);
+	//plane p(0.032072,0.031865,0.129676); //Scan 2
+	//plane p(0.031160,-0.006922,-0.032507); //Scan 2
+	plane p(9.327223,0.468285,0.717058);
 	pcl::PointCloud<pcl::PointXYZ>::Ptr plane_cloud(new pcl::PointCloud<pcl::PointXYZ>());
-	for(int i=0;i<1000;i++){
-		float x = ((float)(rand()%3000))/10.0 - 100.0;
+	for(int i=0;i<10000;i++){
+		float x = ((float)(rand()%6000))/100.0 - 40.0;
 		float y = ((float)(rand()%3000))/10.0 - 100.0;
 		float z = planeMaker(x,y,p);
 		plane_cloud->points.push_back(pcl::PointXYZ(x,y,z));
