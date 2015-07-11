@@ -64,7 +64,7 @@ int main(int argc, char **argv)
 							)
 							<0.005?true:false);};
     MeanShift *msp = new MeanShift();
-    double kernel_bandwidth = 41; //change this to 30 for the face ------------------------------------------------------------------
+    double kernel_bandwidth = 41; //change this to 41 for Vinayak face ------------------------------------------------------------------
     //vector<vector<double> > points = load_points("../ProstheticEye/transformspace.csv");
     vector<vector<double> > points = load_points("transformspace.csv");
     
@@ -143,10 +143,10 @@ int main(int argc, char **argv)
          if(max<repeated_points[l][3])
          { 
              max=repeated_points[l][3];
-	     maxindex = l;
+	         maxindex = l;
          }
-         if(repeated_points[l][3]>100){
-            printf("%d : %f %f %f %f .\n",maxindex,repeated_points[maxindex][0],repeated_points[maxindex][1],repeated_points[maxindex][2],repeated_points[maxindex][3]);
+         if(repeated_points[l][3]>50){
+            printf("%d : %f %f %f %f .\n",l,repeated_points[l][0],repeated_points[l][1],repeated_points[l][2],repeated_points[l][3]);
          }
     }
      
